@@ -16,14 +16,15 @@
             <p> Tuổi : {{ Age }} </p>
         </section>
         <section id="bind-attribute" class="bg-dark p-3 rounded text-center text-white mb-3">
-            <h2 v-bind:class="red">Bind Attribute</h2>
+            <h2 v-bind:class="className">Bind Attribute</h2>
             <img v-bind:src="image" alt="" class="img-thumbnail" >
             <a v-bind:href="linkInfo" v-bind:class="btnInfo">Xem chi tiết</a>
         </section>
         <section id="methods" class="bg-dark p-3 rounded text-center text-white mb-3">
-            <h2 v-bind:class="red">Method</h2>
+            <h2>Method</h2>
             <hr>
-            <p>Tài hay xĩu : {{renderTaiXiu()}} = {{createNut()}} </p>
+            <p>Tài hay xĩu : {{option}} =   {{sum3Number}} </p>
+            <button :class="className" @click="renderTaiXiu()">Chơi</button>
         </section>
         <section id="raw-html" class="bg-dark p-3 rounded text-center text-white mb-3">
             <h2>Raw Html</h2>
@@ -60,8 +61,30 @@
                 </div>
             </div>
         </section>
-    </div>
+        <section id="two-way-binding"class="bg-dark p-3 rounded text-center text-white mb-3">
+            <h2>Two way binding</h2>
+            <div class="">
+                <h4 :class="className">Cách 1 dùng sự kiện @input</h4>
+                <input type="text" @input="handleInput">
+                <p>Message is :  {{msg}} </p>
+            </div>
+            <hr>
+            <div class="">
+                <h4 :class="className">Cách 2 dùng v-model</h4>
+                <input type="text" v-model="message">
+                <p>Message of option 2 is :  {{message}} </p>
+            </div>
+        </section>
 
+        <section id="computed-and-watcher"class="bg-dark p-3 rounded text-center text-white mb-3">
+            <h2>Computed-and-watcher</h2>
+            <p>Count = {{count}} </p>
+            <button :class="className" @click="handleIncrement">Increment</button>
+            <p>Họ và Tên :  {{getFullName}} </p>
+
+        </section>
+    </div>
+    <hr>
 
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue JS Chapter 1</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
 
@@ -80,7 +81,79 @@
             <h2>Computed-and-watcher</h2>
             <p>Count = {{count}} </p>
             <button :class="className" @click="handleIncrement">Increment</button>
-            <p>Họ và Tên :  {{getFullName}} </p>
+            <div class="form-group">
+                <label for="">Lastname</label>
+                <input type="text" class="form-control" v-model="lastName">
+            </div>
+            <div class="form-group">
+                <label for="">firstName</label>
+                <input type="text" class="form-control" v-model="firstName">
+            </div>
+            <p class="alert alert-success">  Computed Họ và Tên :  {{getFullName}} </p>
+            <p class="alert alert-success">  Watch Họ và Tên :  {{FullName}} </p>
+
+        </section>
+
+        <section id="styling"class="bg-dark p-3 rounded text-center text-white mb-3">
+            <h2>Styling</h2>
+            <hr>
+            <ol>
+                <li class="text-center">
+                    <h3>Binding via style</h3>
+                    <p :style="[styleForP, styleText]"> 
+                        My content
+                    </p>
+                    <button :class="ClassName" @click="handleFormat">Format</button>
+                </li>
+                <hr style="background-color: white; height: 10px;">
+                <li>
+                    <h3>Binding via class</h3>
+                    <div class="app-circle" :class="{'app-circle--red': isActive}"></div>
+                    <button :class="ClassName" @click="handleFormatColor()">Format color</button>
+                </li>
+            </ol>
+        </section>
+        <section id="directive"class="bg-dark p-3 rounded text-center text-white mb-3">
+            <h2>Directive</h2>
+            <div>
+                <p v-if="isLogin" class="alert alert-success">Chào mừng Đặng Văn Phúc</p>
+                <button v-else class="btn btn-info w-100" @click="handleLogin">Login</button>
+            </div>
+            <div class="">
+                <h3>
+                    Chuyển đổi(Toggle)
+                </h3>
+                <div class="alert alert-danger">
+                    <p v-if="toggle">Giao diện GUI</p>
+                    <p v-else>Dòng lệnh</p>
+                </div>
+                <button :class="className" @click="handleToggle">Chuyển đổi giao diện</button>
+            </div>
+            <div>
+                <h3 class="mx-3">Chọn tướng</h3>
+                <img v-if="nameHero === 'zed'" :src="UrlHero.zed" alt="zed" class="img-thumbnail mb-3">
+                <img v-else-if="nameHero === 'leeSin'" :src="UrlHero.leeSin" alt="leeSin" class="img-thumbnail mb-3">
+                <img v-else-if="nameHero === 'niDaLee'" :src="UrlHero.niDaLee" alt="niDaLee" class="img-thumbnail mb-3">
+                <p v-else class="alert alert-success">Xin Hãy Chọn Tướng</p>
+                <button class="btn btn-primary " @click="handleChoose('zed')">zed</button>
+                <button class="btn btn-primary " @click="handleChoose('leeSin')" style="margin: 0 20px;">LeeSin</button>
+                <button class="btn btn-primary " @click="handleChoose('niDaLee')">NiDaLee</button>
+
+                <p v-show="true">V-show nếu false thì element nó sẻ còn trong dom còn v-if nếu true thì phần tử nó sẻ xó khỏi dom lun
+                    <br>
+                    The difference is that an element with v-show will always be rendered and remain in the DOM; v-show only toggles the display CSS property of the element.
+                </p>
+            </div>
+            <div class="mt-3">
+                <h3>Danh sách nhóm nhạc dùng v-for để render ra</h3>
+                <ul>
+                    <li v-for="(each,index) in blackpink" class="d-flex justify-content-between align-items-center my-3" :key="index">
+                        <p> {{index + 1}} </p>
+                        <img :src="each.image" alt="Lisa" class="img-thumbnail w-50" > 
+                        <h4> {{each.name}} </h4>
+                    </li>
+                </ul>
+            </div>
 
         </section>
     </div>

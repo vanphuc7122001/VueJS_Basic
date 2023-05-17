@@ -9,6 +9,15 @@ const routes = [
     path: "/computed",
     component: () => import("../pages/TheComputed.vue"),
   },
+  {
+    path: "/params",
+    component: () => import("../pages/TheParams.vue"),
+  },
+
+  {
+    path: "/users",
+    component: () => import("../pages/UserList.vue"),
+  },
 ];
 
 const router = createRouter({

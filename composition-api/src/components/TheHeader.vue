@@ -1,11 +1,14 @@
 <template>
-  <router-link to="/" class="mx-3">Home</router-link>
-  <router-link to="/computed">Computed watch</router-link>
+  <router-link to="/" >Home</router-link>
+  <router-link to="/computed" class="mx-3">Computed watch</router-link>
+  <router-link to="/params" class="mx-3">Params</router-link>
+  <router-link to="/users">user</router-link>
+  
 </template>
 
 <script>
 export default {
-
+  
 }
 </script>
 

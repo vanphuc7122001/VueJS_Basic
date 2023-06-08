@@ -34,6 +34,10 @@ const routes = [
     path: "/upload_image",
     component: () => import("../pages/UpLoadImage.vue"),
   },
+  {
+    path: "/upload_image_form",
+    component: () => import("../pages/UploadImageFormUser.vue"),
+  },
 ];
 
 const router = createRouter({

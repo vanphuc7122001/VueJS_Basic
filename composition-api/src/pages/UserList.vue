@@ -17,7 +17,7 @@
                 <td>{{ userItem.age }}</td>
                 <td>{{ userItem.description }}</td>
                 <td>
-                    Xem chi tiết
+                    <router-link :to="`/users/${userItem.id}`">Xem chi tiết</router-link>
                 </td>
             </tr>
         </tbody>
@@ -28,21 +28,14 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import userService from '../services/user-service'
 
+import useUser from '../use/fetchAllUser'
 
 export default {
     setup(){
-        const userList = ref([])
-        const fetchAllUser = async () => {
-            const res = await userService.get()
-            // console.log(res);
-            userList.value = [...res]
-        }
-
+        
+        const {userList, fetchAllUser} = useUser()
         fetchAllUser()
-
         return {
             userList
         }

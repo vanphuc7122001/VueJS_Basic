@@ -7,7 +7,7 @@ export default {
     return await axios.get(`${resource}`);
   },
 
-  getUser(userId) {
-    return axios.getUser(`${resource}/${userId}`);
+  async getUser(userId) {
+    return await axios.get(`${resource}/${userId}`);
   },
 };

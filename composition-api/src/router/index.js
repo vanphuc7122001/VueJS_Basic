@@ -6,6 +6,10 @@ const routes = [
     component: () => import("../pages/HomePage.vue"),
   },
   {
+    path: "/diy",
+    component: () => import("../pages/TheDiy.vue"),
+  },
+  {
     path: "/computed",
     component: () => import("../pages/TheComputed.vue"),
   },
@@ -17,6 +21,18 @@ const routes = [
   {
     path: "/users",
     component: () => import("../pages/UserList.vue"),
+  },
+  {
+    path: "/users/:id",
+    component: () => import("../pages/UserDetail.vue"),
+  },
+  {
+    path: "/ref",
+    component: () => import("../pages/TheRef.vue"),
+  },
+  {
+    path: "/upload_image",
+    component: () => import("../pages/UpLoadImage.vue"),
   },
 ];
 
